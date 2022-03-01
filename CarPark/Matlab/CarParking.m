@@ -23,7 +23,7 @@ function varargout = CarParking(varargin)
 
 % Edit the above text to modify the response to help CarParking
 
-% Last Modified by GUIDE v2.5 05-Jan-2020 21:17:28
+% Last Modified by GUIDE v2.5 26-Jan-2020 23:50:32
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -85,12 +85,12 @@ function togglebutton_connect_Callback(hObject, eventdata, handles)
 global arduino 
 
          try
-            arduino = serial('COM1','BaudRate',115200);
+            arduino = serial('COM3','BaudRate',115200);
             fopen(arduino);
 
          catch e
 
-             arduino = serial('COM1','BaudRate',115200);
+             arduino = serial('COM3','BaudRate',115200);
             fopen(arduino);       
          end
 
@@ -100,32 +100,32 @@ while get(hObject, 'Value')
     if isempty(data)
     else
     text=data(1:5);
-    
+
     if text=="open1"
         set(handles.text_AS1, 'BackgroundColor', [0 1 0] );
-        set(handles.text_OS1, 'BackgroundColor', [1 0 0] );
+        
     
     elseif text=="open2" 
         set(handles.text_AS2, 'BackgroundColor', [0 1 0] );
-        set(handles.text_OS2, 'BackgroundColor', [1 0 0] );
+      
     elseif text=="open3"
         set(handles.text_AS3, 'BackgroundColor', [0 1 0] );
-        set(handles.text_OS3, 'BackgroundColor', [1 0 0] );
+        
     elseif text=="open4"
         set(handles.text_AS4, 'BackgroundColor', [0 1 0] );
-        set(handles.text_OS4, 'BackgroundColor', [1 0 0] );
+        
     elseif text=="clos1"
         set(handles.text_AS1, 'BackgroundColor', [1 0 0] );
-        set(handles.text_OS1, 'BackgroundColor', [0 1 0] );
+       
     elseif text=="clos2"
         set(handles.text_AS2, 'BackgroundColor', [1 0 0] );
-        set(handles.text_OS2, 'BackgroundColor', [0 1 0] );
+      
     elseif text=="clos3"
         set(handles.text_AS3, 'BackgroundColor', [1 0 0] );
-        set(handles.text_OS3, 'BackgroundColor', [0 1 0] );
+       
     elseif text=="clos4"
         set(handles.text_AS4, 'BackgroundColor', [1 0 0] );
-        set(handles.text_OS4, 'BackgroundColor', [0 1 0] );
+       
     end
     end
     pause(0.5);
@@ -134,4 +134,3 @@ end
  fclose(arduino);
  delete(arduino);
  
-
