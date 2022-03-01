@@ -1,4 +1,4 @@
-# Carpack-Ardruino
+# Mini Car parking system
 Miniature parking system using Arduino with infrared sensors.This was a project in college
 
 
